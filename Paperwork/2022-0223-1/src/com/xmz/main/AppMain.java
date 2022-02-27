@@ -9,7 +9,7 @@ public class AppMain {
         HashMap<String,String> info = new HashMap<String,String>();
         Scanner input = new Scanner(System.in);
         QuickReady.Intialize(info);
-        info = GetInfo.GetUserInfo(info);
+        info = GetInfo.getUserInfo(info);
 
         for(String i:info.keySet()){
             System.out.println("您的"+i+"是"+info.get(i));

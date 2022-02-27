@@ -3,17 +3,11 @@ package com.xmz.main;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
-import java.util.Random;
 import java.util.Scanner;
 
 public class GetInfo {
 
-    public static int RandomNumber(int min,int max){
-        Random rand = new Random();
-        return rand.nextInt((max-min)+1+min);
-    }
-
-    public static void ClearCMD(){
+    public static void clearCMD(){
         try {
             Runtime.getRuntime().exec("cmd.exe /c cls");
         } catch (IOException e) {
@@ -21,11 +15,22 @@ public class GetInfo {
         }
     }
 
-    public static  boolean CheckNumber(String buffer,int max,int min) {
+    private static boolean checkNumber(String buffer,int max,int min) {
         int transGo;
         try { //判断输入是否符合数字条件
             transGo = Integer.parseInt(buffer);
-        } catch (NumberFormatException ex) {
+        } catch (NumberFormatException error) {
+            return false;
+        }
+        //大小判断
+        return transGo >= min && transGo <= max;
+    }
+
+    private static boolean checkNumber(String buffer,double max,double min) {
+        double transGo;
+        try { //判断输入是否符合数字条件
+            transGo = Double.parseDouble(buffer);
+        } catch (NumberFormatException error) {
             return false;
         }
         //大小判断
@@ -44,34 +49,41 @@ public class GetInfo {
 //        }
 //    }
 
-    public static HashMap GetUserInfo(HashMap in){
+    public static HashMap getUserInfo(HashMap in){
         Scanner input = new Scanner(System.in);
         HashMap<String,String> newTable = new HashMap<String,String>();
         newTable.putAll(in);
         String buffer;
         for(String i : newTable.keySet()) {
-            ClearCMD();
+            clearCMD();
             buffer = null;
             System.out.println("现在请输入您的" + i);
-            //判断.jpg
+
+            //执行各项判断
             if (Objects.equals(i, "姓名")) { //姓名键入
                 while (true) {
                     buffer = input.nextLine();
-                    if (buffer.length() > 5) { //姓名合理性
-                        System.out.println("字符过长，禁用英文");
+                    if (buffer.length() > 5||buffer.length() < 2) { //姓名合理性校验
+                        System.out.println("你的名字必须是两个字符以上五个字符以下");
                         continue;
                     }
                     newTable.replace(i, buffer);
                     break;
                 }
 
-            } else if (Objects.equals(i, "学号")) { //随机数学号
-                int rNum = RandomNumber(20210301, 20210350);
-                newTable.replace(i, Integer.toString(rNum));
-            } else if (Objects.equals(i, "年龄")) { //年龄判断
+            } else if (Objects.equals(i, "学号")) { //学号输入
+                while(true){
+                    buffer = input.nextLine();
+                    if(checkNumber(buffer,99999999,10000000)){
+                        newTable.replace(i,buffer);
+                        break;
+                    }
+                    System.out.println("你的学号必须是八位数");
+                }
+            } else if (Objects.equals(i, "年龄")) { //年龄输入
                 while (true) {
                     buffer = input.nextLine();
-                    if(CheckNumber(buffer,200,3)){
+                    if(checkNumber(buffer,200,3)){//年龄最高200岁最低3岁
                         newTable.replace(i,buffer);
                         break;
                     }else{
@@ -120,7 +132,7 @@ public class GetInfo {
                 System.out.print("以cm计算:");
                 while(true){
                     buffer = input.nextLine();
-                    if(CheckNumber(buffer,300,50)){
+                    if(checkNumber(buffer,250,30)){
                         newTable.replace(i,buffer);
                         break;
                     }else{
@@ -131,7 +143,7 @@ public class GetInfo {
                 System.out.print("以kg计算:");
                 while(true){
                     buffer = input.nextLine();
-                    if(CheckNumber(buffer,300,2)){
+                    if(checkNumber(buffer,300,1.5)){
                         newTable.replace(i,buffer);
                         break;
                     }else{
@@ -145,4 +157,5 @@ public class GetInfo {
 
         return newTable;
     }
+
 }
