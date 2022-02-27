@@ -22,7 +22,7 @@
 
 ### 作业涵盖语言
 
-![](https://badgen.net/badge/C/11/blue)
+![](https://badgen.net/badge/JDK/16/yellow)
 
 ### 许可证
 
