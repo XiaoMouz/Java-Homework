@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class QuickReady {
 
+    //初始化HashMap,将Key填充完整
     public static HashMap Intialize(HashMap in){
         if(in.size()!=0){
             in.clear();

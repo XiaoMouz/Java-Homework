@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.regex.*;
 
 public class GetInfo {
 
+    //清屏 - TODO
     public static void clearCMD(){
         try {
             Runtime.getRuntime().exec("cmd.exe /c cls");
@@ -15,6 +17,7 @@ public class GetInfo {
         }
     }
 
+    //用于检查int类型的数字是否正常，返回布尔值，max对应可接收值，min对应最小值
     private static boolean checkNumber(String buffer,int max,int min) {
         int transGo;
         try { //判断输入是否符合数字条件
@@ -26,6 +29,7 @@ public class GetInfo {
         return transGo >= min && transGo <= max;
     }
 
+    //用于检查double类型的数字是否正常，返回布尔值，max对应可接收值，min对应最小值
     private static boolean checkNumber(String buffer,double max,double min) {
         double transGo;
         try { //判断输入是否符合数字条件
@@ -49,9 +53,14 @@ public class GetInfo {
 //        }
 //    }
 
+
+    //用于处理用户信息接收
     public static HashMap getUserInfo(HashMap in){
+        String nameRegular = "^[\\u4e00-\\u9fa5.·\\u36c3\\u4DAE]{0,}$";//中文姓名匹配用的正则表达式
+        String phoneNumberRegular = "^1[3|4|5|7|8][0-9]\\d{4,8}$";//
+        String fullNumberRegular = "[0-9]+";
         Scanner input = new Scanner(System.in);
-        HashMap<String,String> newTable = new HashMap<String,String>();
+        HashMap<String,String> newTable = new HashMap< String,String>();
         newTable.putAll(in);
         String buffer;
         for(String i : newTable.keySet()) {
@@ -63,15 +72,15 @@ public class GetInfo {
             if (Objects.equals(i, "姓名")) { //姓名键入
                 while (true) {
                     buffer = input.nextLine();
-                    if (buffer.length() > 5||buffer.length() < 2) { //姓名合理性校验
-                        System.out.println("你的名字必须是两个字符以上五个字符以下");
-                        continue;
+                    if ((buffer.length() < 6||buffer.length() > 2)&&Pattern.matches(nameRegular,buffer)) { //姓名合理性校验
+                        newTable.replace(i, buffer);
+                        break;
                     }
-                    newTable.replace(i, buffer);
-                    break;
+                    System.out.println("你的名字必须是两个字符以上五个字符以下，并且必须是中文");
+                    continue;
                 }
 
-            } else if (Objects.equals(i, "学号")) { //学号输入
+            } else if (Objects.equals(i, "学号")) { //学号收集
                 while(true){
                     buffer = input.nextLine();
                     if(checkNumber(buffer,99999999,10000000)){
@@ -80,7 +89,7 @@ public class GetInfo {
                     }
                     System.out.println("你的学号必须是八位数");
                 }
-            } else if (Objects.equals(i, "年龄")) { //年龄输入
+            } else if (Objects.equals(i, "年龄")) { //年龄收集
                 while (true) {
                     buffer = input.nextLine();
                     if(checkNumber(buffer,200,3)){//年龄最高200岁最低3岁
@@ -90,11 +99,11 @@ public class GetInfo {
                         System.out.println("你的年龄不符合逻辑，请重新输入");
                     }
                 }
-            } else if (Objects.equals(i, "性别")) {
+            } else if (Objects.equals(i, "性别")) {//性别收集
                 boolean Leave = true;
                 while (Leave) { //shit code
                     buffer = input.nextLine();
-                    switch (buffer) {
+                    switch (buffer) { //性别输入识别
                         case "男", "Man", "man", "MAN", "Male", "MALE" -> {
                             newTable.replace(i, "男");
                             Leave = false;
@@ -106,10 +115,10 @@ public class GetInfo {
                         default -> System.out.println("不符合要求，请重新输入");
                     }
                 }
-            } else if (Objects.equals(i, "QQ")) {
+            } else if (Objects.equals(i, "QQ")) {//QQ收集
                 while(true){
                     buffer = input.nextLine();
-                    if(buffer.length()>5&&buffer.length()<14){
+                    if(buffer.length()>5&&buffer.length()<14&&Pattern.matches(fullNumberRegular,buffer)){
                         newTable.replace(i,buffer);
                         break;
                     }else{
@@ -118,17 +127,17 @@ public class GetInfo {
                 }
 
 
-            }else if(Objects.equals(i,"手机号")){
+            }else if(Objects.equals(i,"手机号")){//手机号收集
                 while (true){
                     buffer = input.nextLine();
-                    if(buffer.length()==11){
+                    if(buffer.length()==11&&Pattern.matches(phoneNumberRegular,buffer)){
                         newTable.replace(i,buffer);
                         break;
                     }else{
                         System.out.println("手机号不正确，请重新输入");
                     }
                 }
-            }else if(Objects.equals(i,"身高")){
+            }else if(Objects.equals(i,"身高")){//身高收集
                 System.out.print("以cm计算:");
                 while(true){
                     buffer = input.nextLine();
@@ -139,7 +148,7 @@ public class GetInfo {
                         System.out.println("输入不合理，请重新输入");
                     }
                 }
-            }else if(Objects.equals(i,"体重")){
+            }else if(Objects.equals(i,"体重")){//体重收集
                 System.out.print("以kg计算:");
                 while(true){
                     buffer = input.nextLine();
