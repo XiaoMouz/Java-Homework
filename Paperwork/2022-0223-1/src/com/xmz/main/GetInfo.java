@@ -5,18 +5,14 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.*;
+import java.io.IOException;
 
 public class GetInfo {
 
-    //清屏 - TODO
+    //清屏 - 我放弃了
     public static void clearCMD(){
-        try {
-            Runtime.getRuntime().exec("cmd.exe /c cls");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        System.out.print("\n");
     }
-
     //用于检查int类型的数字是否正常，返回布尔值，max对应可接收值，min对应最小值
     private static boolean checkNumber(String buffer,int max,int min) {
         int transGo;
