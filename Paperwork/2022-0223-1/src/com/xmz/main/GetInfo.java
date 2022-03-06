@@ -52,7 +52,7 @@ public class GetInfo {
 
     //用于处理用户信息接收
     public static HashMap getUserInfo(HashMap in){
-        String nameRegular = "^[\\u4e00-\\u9fa5.·\\u36c3\\u4DAE]{0,}$";//中文姓名匹配用的正则表达式
+        String nameRegular = "^[\\u4e00-\\u9fa5.·\\u36c3\\u4DAE]{2,6}$";//中文姓名匹配用的正则表达式
         String phoneNumberRegular = "^1[3|4|5|7|8][0-9]\\d{4,8}$";//
         String fullNumberRegular = "[0-9]+";
         Scanner input = new Scanner(System.in);
@@ -68,7 +68,7 @@ public class GetInfo {
             if (Objects.equals(i, "姓名")) { //姓名键入
                 while (true) {
                     buffer = input.nextLine();
-                    if ((buffer.length() < 6||buffer.length() > 2)&&Pattern.matches(nameRegular,buffer)) { //姓名合理性校验
+                    if (Pattern.matches(nameRegular,buffer)) { //姓名合理性校验
                         newTable.replace(i, buffer);
                         break;
                     }
