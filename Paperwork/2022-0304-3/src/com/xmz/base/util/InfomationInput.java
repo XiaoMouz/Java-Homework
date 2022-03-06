@@ -7,13 +7,13 @@ import java.util.regex.Pattern;
 
 public class InfomationInput {
     /**
-     * 
-     * @param buffer
-     * @param max
-     * @param min
-     * @return
+     * 用于判断字符串是否能够转换为int类型整数，并且是否会大于或小于给定的数值
+     * @param buffer 用于判断的整数
+     * @param max 最大数
+     * @param min 最小数
+     * @return 若符合条件并且在范围内则返回true，否则为false
      */
-    private static boolean checkNumber(String buffer,int max,int min) {
+    protected static boolean checkNumber(String buffer,int max,int min) {
         int transGo;
         try { //判断输入是否符合数字条件
             transGo = Integer.parseInt(buffer);
@@ -24,8 +24,14 @@ public class InfomationInput {
         return transGo >= min && transGo <= max;
     }
 
-    //用于检查double类型的数字是否正常，返回布尔值，max对应可接收值，min对应最小值
-    private static boolean checkNumber(String buffer,double max,double min) {
+    /**
+     * 用于判断字符串是否能够转换为double类型整数，并且是否会大于或小于给定的数值
+     * @param buffer 用于判断的整数
+     * @param max 最大数
+     * @param min 最小数
+     * @return 若符合条件并且在范围内则返回true，否则为false
+     */
+    protected static boolean checkNumber(String buffer,double max,double min) {
         double transGo;
         try { //判断输入是否符合数字条件
             transGo = Double.parseDouble(buffer);
@@ -36,21 +42,8 @@ public class InfomationInput {
         return transGo >= min && transGo <= max;
     }
 
-//    public static boolean ThisIsNumber(String buffer) {
-//        int transGo;
-//        while (true) {
-//            try { //判断输入是否符合数字条件
-//                transGo = Integer.parseInt(buffer);
-//                return true;
-//            } catch (NumberFormatException ex) {
-//                return false;
-//            }
-//        }
-//    }
-
-
     //用于处理用户信息接收
-    public static HashMap getUserInfo(HashMap in){
+    private static HashMap getUserInfo(HashMap in){
         String nameRegular = "^[\\u4e00-\\u9fa5.·\\u36c3\\u4DAE]{2,6}$";//中文姓名匹配用的正则表达式
         String phoneNumberRegular = "^1[3|4|5|7|8][0-9]\\d{4,8}$";//
         String fullNumberRegular = "[0-9]+";
