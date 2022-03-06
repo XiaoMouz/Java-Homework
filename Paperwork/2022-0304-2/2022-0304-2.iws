@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b4ee0ce-5228-42dc-8cbc-81891dd67b88" name="默认变更列表" comment="" />
+    <list default="true" id="7b4ee0ce-5228-42dc-8cbc-81891dd67b88" name="默认变更列表" comment="">
+      <change beforePath="$PROJECT_DIR$/../2022-0223-1/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2022-0304-2.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/2022-0304-2.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2022-0304-2.iws" beforeDir="false" afterPath="$PROJECT_DIR$/2022-0304-2.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mou/homework/main/AppMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mou/homework/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mou/homework/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mou/homework/util/GetInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mou/homework/util/GetAchievement.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +21,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="ProjectId" id="2608kZ0KtEhm008Ywc4bafAfCyo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -24,15 +35,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.mou.homework.main.Main" />
+      <module name="2022-0304-2" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -47,6 +59,9 @@
       <option name="presentableId" value="Default" />
       <updated>1646549290524</updated>
       <workItem from="1646549292117" duration="24000" />
+      <workItem from="1646549713233" duration="682000" />
+      <workItem from="1646550491743" duration="3242000" />
+      <workItem from="1646554702915" duration="324000" />
     </task>
     <servers />
   </component>

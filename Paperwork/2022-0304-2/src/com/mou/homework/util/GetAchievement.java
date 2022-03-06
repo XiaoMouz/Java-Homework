@@ -1,4 +1,4 @@
-package com.mou.util;
+package com.mou.homework.util;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class GetInfo {
+public class GetAchievement {
 
     /**
      * 通过正则表达式来确保字符串输入合法
@@ -127,14 +127,14 @@ public class GetInfo {
      * @param aMin 单科最小分
      * @return 包含所有学生与成绩的集合
      */
-    public static ArrayList<ArrayList<Double>> inputAchievement(int count,int personnel,double aMax,double aMin){
+    public static ArrayList<ArrayList<Double>> inputAchievement(int personnel,int count,double aMax,double aMin){
         System.out.println("开始输入您的成绩，您此次要录入"+personnel+"人的"+count+"科成绩");
         ArrayList<ArrayList<Double>> student = new ArrayList<>();
         ArrayList<Double> counts = new ArrayList<>();
-        for (int i=0;i<=personnel;i++){
-            for (int j=0;j<=count;j++){
-                System.out.println("现在输入的是第"+(i+1)+"位学生的第"+(j+1)+"科成绩");
-                counts.add(inputNumber(aMin,aMax));
+        Scanner in = new Scanner(System.in);
+        for (int i=1;i<=personnel;i++){
+            for (int j=1;j<=count;j++){
+                counts.add(inputNumber("现在输入的是第"+(i)+"位学生的第"+(j)+"科成绩",aMin,aMax));
             }
             student.add(counts);
         }
