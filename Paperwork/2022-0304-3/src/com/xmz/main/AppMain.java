@@ -1,2 +1,4 @@
-package com.xmz.base.main;
+package com.xmz.main;
 
+public class AppMain {
+}
