@@ -28,10 +28,10 @@ public class StringHandle {
      * @param cutTarget 剪切分割关键字
      * @return 剪切后的字符串数组
      */
-    public static String[] CutString(String stdString,char cutTarget){
-        String[] strings = new String[StringCharContainTimes(stdString,cutTarget)+1];
+    public static ArrayList<String> CutString(String stdString,char cutTarget){
+        ArrayList<String> strings = new ArrayList<>();
         for(int i = 0;i < StringCharContainTimes(stdString,cutTarget);i++){
-            strings[i] = (stdString.substring(0,stdString.indexOf(cutTarget)-1));
+            strings.add(stdString.substring(0,stdString.indexOf(cutTarget)-1));
             stdString = stdString.substring(stdString.indexOf(cutTarget)+1);
         }
         return strings;

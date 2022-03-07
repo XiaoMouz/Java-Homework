@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class InfomationInput {
+public class InformationInput {
     /**
      * 用于判断字符串是否能够转换为int类型整数，并且是否会大于或小于给定的数值
      * @param buffer 用于判断的整数
@@ -40,6 +40,39 @@ public class InfomationInput {
         }
         //大小判断
         return transGo >= min && transGo <= max;
+    }
+
+
+    //TODO:处理来自`CollectBasicInformationFromConsole`的基础信息
+
+    protected static boolean userInformationHandle(String stdString,InformationHandleMode mode){
+        //会用到的正则表达式
+        String nameRegular = "^[\\u4e00-\\u9fa5.·\\u36c3\\u4DAE]{2,6}$";
+        String phoneNumberRegular = "^1[3|4|5|7|8][0-9]\\d{4,8}$";
+        String fullNumberRegular = "[0-9]+";
+
+        if (mode==InformationHandleMode.NAME){
+            return stdString.matches(nameRegular);
+        }else if (mode==InformationHandleMode.ID){
+            return checkNumber(stdString,99999999,10000000);
+        }else if (mode==InformationHandleMode.QQ){
+            return stdString.length()>5&&stdString.length()<14&&stdString.matches(fullNumberRegular);
+        }else if (mode==InformationHandleMode.PHONENUMBER){
+            return stdString.matches(phoneNumberRegular);
+        }else if (mode==InformationHandleMode.GENDER) {
+            switch (stdString) { //性别输入识别
+                case "男", "Man", "man", "MAN", "Male", "MALE", "女", "woman", "Woman", "WOMAN", "female", "Female", "FEMALE" -> {
+                    return true;
+                }
+                default -> {
+                    return false;
+                }
+            }
+        }else if(mode==InformationHandleMode.HEIGHT){
+
+        }else{
+            return false;
+        }
     }
 
     //用于处理用户信息接收
