@@ -1,12 +1,14 @@
 package com.xmz.base;
 
+import com.xmz.base.util.InformationHandleMode;
+import com.xmz.base.util.InformationInput;
 import com.xmz.util.StringHandle;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Information{
-    public String name,_class,QQ,phoneNumber,id,height,width;
+    public String name,_class,QQ,telePhone,id,height,width;
     public Double[] achievement;
 
     public Information CollectBasicInformationFromConsole(String tips){
@@ -31,6 +33,11 @@ public class Information{
         }
         //[ ]TODO:存入Information对象，判断是否合法，如不合法请求重写该字段直到合法为止
         for (int i = 0;i < userInfoList.size();i++){
+            while(true){
+                switch (InformationInput.userInformationHandle(userInfoList.get(i), InformationHandleMode.DEFAULT)){
+                    case
+                }
+            }
 
         }
         //
