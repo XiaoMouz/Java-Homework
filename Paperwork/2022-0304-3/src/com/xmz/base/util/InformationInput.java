@@ -69,10 +69,12 @@ public class InformationInput {
         String nameRegular = "^[\\u4e00-\\u9fa5.·\\u36c3\\u4DAE]{2,6}$";
         String phoneNumberRegular = "^1[3|4|5|7|8][0-9]\\d{4,8}$";
         String fullNumberRegular = "[0-9]+";
+        String widthRegular="([0-9]+|\\.+[0-9]{1,2})+[k|K][g|G]";
+        String heightRegular="([0-9]+|\\.+[0-9]{1,2})+[c|C][m|M]";
 
         if ((mode==InformationHandleMode.NAME||mode==InformationHandleMode.DEFAULT)&&stdString.matches(nameRegular)){
             return 1;
-        }else if ((mode==InformationHandleMode.ID||mode==InformationHandleMode.DEFAULT)&&checkNumber(stdString,99999999,10000000)){
+        }else if ((mode==InformationHandleMode.ID||mode==InformationHandleMode.DEFAULT)&&checkNumber(stdString,21120101,21129999)){
             return 2;
         }else if ((mode==InformationHandleMode.QQ||mode==InformationHandleMode.DEFAULT)&&(stdString.length()>5&&stdString.length()<14&&stdString.matches(fullNumberRegular))){
             return 3;
@@ -80,9 +82,9 @@ public class InformationInput {
             return 4;
         }else if ((mode==InformationHandleMode.GENDER||mode==InformationHandleMode.DEFAULT)&&genderChecker(stdString)) {
             return 5;
-        }else if((mode==InformationHandleMode.HEIGHT||mode==InformationHandleMode.DEFAULT)&&checkNumber(stdString,250,5)){
+        }else if((mode==InformationHandleMode.HEIGHT||mode==InformationHandleMode.DEFAULT)&&stdString.matches(heightRegular)){
             return 6;
-        }else if((mode==InformationHandleMode.WIDTH||mode==InformationHandleMode.DEFAULT)&&checkNumber(stdString,300,1.5)){
+        }else if((mode==InformationHandleMode.WIDTH||mode==InformationHandleMode.DEFAULT)&&stdString.matches(widthRegular)){
             return 7;
         }else{
             return 0;

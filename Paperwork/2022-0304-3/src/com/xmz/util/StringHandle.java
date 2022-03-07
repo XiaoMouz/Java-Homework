@@ -11,7 +11,7 @@ public class StringHandle {
      * @param target 需要对比的字符
      * @return 出现的次数,int类型,若是0则不存在
      */
-    public static int StringCharContainTimes(String containString,char target){
+    public static int stringCharContainTimes(String containString,char target){
         char[] containGroup = containString.toCharArray();
         int times = 0;
         for (int i = 0;i < containGroup.length;i++){
@@ -28,9 +28,9 @@ public class StringHandle {
      * @param cutTarget 剪切分割关键字
      * @return 剪切后的字符串数组
      */
-    public static ArrayList<String> CutString(String stdString,char cutTarget){
+    public static ArrayList<String> cutString(String stdString,char cutTarget){
         ArrayList<String> strings = new ArrayList<>();
-        for(int i = 0;i < StringCharContainTimes(stdString,cutTarget);i++){
+        for(int i = 0;i < stringCharContainTimes(stdString,cutTarget);i++){
             strings.add(stdString.substring(0,stdString.indexOf(cutTarget)-1));
             stdString = stdString.substring(stdString.indexOf(cutTarget)+1);
         }
