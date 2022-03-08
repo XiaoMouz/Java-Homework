@@ -15,11 +15,15 @@ public class AppMain {
         mainUser.achievementCollect(120.0,0.0);
         printfInfo(mainUser);
         System.out.print("成绩:\n");
-        System.out.print("C语言\t|Java\t|MySQL\t|Web\t\n");
+        System.out.print("C语言\t|Java\t|MySQL\t|Web\t|总分\t平均分\t\n");
         for(int i=0;i<(mainUser.achievement).length-1;i++){
             System.out.print(mainUser.achievement[i]+"\t|");
+            mainUser.sum+=mainUser.achievement[i];
         }
-        System.out.print((mainUser.achievement[mainUser.achievement.length-1]));
+        mainUser.sum+=mainUser.achievement[mainUser.achievement.length-1];
+        mainUser.avg=mainUser.sum/(mainUser.achievement).length;
+        System.out.print((mainUser.achievement[mainUser.achievement.length-1])+"\t|"+ mainUser.sum+"\t|"+ mainUser.avg);
+
     }
 
     public static void printfInfo(Information mainUser){

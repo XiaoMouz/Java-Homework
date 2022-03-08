@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b4ee0ce-5228-42dc-8cbc-81891dd67b88" name="默认变更列表" comment="">
-      <change afterPath="$PROJECT_DIR$/../2022-0304-3/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2022-0304-3/src/com/xmz/base/util/AchievementCourse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2022-0304-3/src/com/xmz/base/util/AchievementInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2022-0304-2.iws" beforeDir="false" afterPath="$PROJECT_DIR$/2022-0304-2.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2022-0304-3/src/com/xmz/base/Information.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2022-0304-3/src/com/xmz/base/Information.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2022-0304-3/src/com/xmz/base/util/InformationInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2022-0304-3/src/com/xmz/base/util/InformationInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2022-0304-3/out/production/2022-0304-3/com/xmz/main/AppMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2022-0304-3/out/production/2022-0304-3/com/xmz/main/AppMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../2022-0304-3/src/com/xmz/main/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2022-0304-3/src/com/xmz/main/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2022-0304-3/src/com/xmz/util/StringHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2022-0304-3/src/com/xmz/util/StringHandle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
