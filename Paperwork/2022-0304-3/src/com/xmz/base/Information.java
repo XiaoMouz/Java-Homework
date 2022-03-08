@@ -53,6 +53,11 @@ public class Information{
         }
     }
 
+    /**
+     * 用于在第一次字符串收集未能成功重新录入的方法
+     * @param mode 选择需要覆写的内容
+     * @return 符合相应条件的字符串
+     */
     private String reInputInfo(InformationHandleMode mode){
         Scanner in = new Scanner(System.in);
         String msg,buffer;
@@ -103,6 +108,11 @@ public class Information{
     }
 
 
+    /**
+     * 用于收集基础数据(姓名，手机号等内容)的方法，只需要传入合适的提示
+     * @param tips 录入提示
+     * @return 通过所有字符串校验，基础信息已补充的Information对象
+     */
     public Information CollectBasicInformationFromConsole(String tips){
         Information doneInfo = new Information();
         //[x]TODO:打印提示信息至控制台并且收集用户输入
@@ -158,4 +168,6 @@ public class Information{
         }
         return doneInfo;
     }
+
+
 }
