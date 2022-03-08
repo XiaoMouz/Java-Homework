@@ -1,5 +1,6 @@
 package com.xmz.base;
 
+import com.xmz.base.util.AchievementInput;
 import com.xmz.base.util.InformationHandleMode;
 import com.xmz.base.util.InformationInput;
 import com.xmz.util.StringHandle;
@@ -12,7 +13,7 @@ import java.util.Scanner;
  * 其中字符串成员只有较不完善的写入控制
  */
 public class Information{
-    public String name,QQ,telePhone,id,gender,height,width,_class;
+    public String name,telePhone,id,gender,height,width,_class;
     public Double[] achievement;
     public double sum,avg;
 
@@ -21,7 +22,7 @@ public class Information{
      */
     public Information() {
         this.name = null;
-        this.QQ = null;
+        //this.QQ = null;
         this.telePhone = null;
         this.gender = null;
         this.height = null;
@@ -36,14 +37,15 @@ public class Information{
      * @param needCheck 需要检查的Information对象
      * @return 返回0则代表完全通过，返回1表示名称有误，返回2学号有误，返回3QQ号有误，返回4手机号有误，返回5性别有误，返回6身高有误，返回7体重有误
      */
-    private int checkInformationContact(Information needCheck){
+    private static int checkInformationContact(Information needCheck){
         if(needCheck.name==null){
             return 1;
         }else if(needCheck.id==null){
             return 2;
-        }else if(needCheck.QQ==null){
-            return 3;
-        }else if(needCheck.telePhone==null){
+        }//else if(needCheck.QQ==null){
+            //return 3;
+        //}
+        else if(needCheck.telePhone==null){
             return 4;
         }else if(needCheck.gender==null){
             return 5;
@@ -61,7 +63,7 @@ public class Information{
      * @param mode 选择需要覆写的内容
      * @return 符合相应条件的字符串
      */
-    private String reInputInfo(InformationHandleMode mode){
+    private static String reInputInfo(InformationHandleMode mode){
         Scanner in = new Scanner(System.in);
         String msg,buffer;
         int modeCheck;
@@ -74,10 +76,10 @@ public class Information{
                 msg="学号";
                 modeCheck=2;
             }
-            case QQ -> {
-                msg="QQ";
-                modeCheck=3;
-            }
+            //case QQ -> {
+            //   msg="QQ";
+            //    modeCheck=3;
+            //}
             case TELEPHONE -> {
                 msg="手机号";
                 modeCheck=4;
@@ -110,43 +112,58 @@ public class Information{
         }
     }
 
+    /**
+     * 基础信息接受，并且禁止集合为空
+     * @param tips 提示
+     * @return 包含基础信息的集合
+     */
+    private static ArrayList<String> basicInputInfo(String tips){
+        System.out.println(tips);
+        Scanner in ;
+        String getUserInput;
+
+        //对字符串进行处理，存入Information类
+        ArrayList<String> userInfoList = new ArrayList<>();//用于存储切割后的字符串
+        char[] arrayListMatchChar = {',','|','，',' ','\t'};//用于切割&比对的字符串
+        //此循环用于循环使用arrayListMatchChar数组内的切割分析元素来校验，倘若接收过来的集合非空则跳过
+
+        while(true){
+            in = new Scanner(System.in);
+            getUserInput = in.nextLine();
+            userInfoList = StringHandle.cutString(getUserInput,'|');
+            for (char c : arrayListMatchChar) {
+                if (userInfoList.size()>8) {
+                    userInfoList = StringHandle.cutString(getUserInput, c);
+                } else {
+                    break;
+                }
+            }
+            if(userInfoList.isEmpty()){
+                System.out.println("请重新输入信息");
+            }else{
+                break;
+            }
+        }
+        return userInfoList;
+    }
 
     /**
      * 用于收集基础数据(姓名，手机号等内容)的方法，只需要传入合适的提示
      * @param tips 录入提示
      * @return 通过所有字符串校验，基础信息已补充的Information对象
      */
-    public Information CollectBasicInformationFromConsole(String tips){
+    public static Information collectBasicInformationFromConsole(String tips){
         Information doneInfo = new Information();
         //打印提示信息至控制台并且收集用户输入
-        System.out.println(tips);
-        Scanner in = new Scanner(System.in);
-        String getUserInput = in.nextLine();
+        ArrayList<String> userInfoList = basicInputInfo(tips);
 
-        //对字符串进行处理，存入Information类
-        ArrayList<String> userInfoList = StringHandle.cutString(getUserInput,',');//用于存储切割后的字符串
-
-        char[] arrayListMatchChar = {',','|','，',' ','\t'};//用于切割&比对的字符串
-        //此循环用于循环使用arrayListMatchChar数组内的切割分析元素来校验，倘若接收过来的集合非空则跳过
-        for (char c : arrayListMatchChar) {
-            if (userInfoList.isEmpty()) {
-                userInfoList = StringHandle.cutString(getUserInput, c);
-            } else {
-                break;
-            }
-        }
-        //判断上轮for循环是否成功收集到数据
-        if(userInfoList.isEmpty()){
-            System.out.println("error");
-            return null;
-        }
         //存入Information对象，判断是否合法，如不合法请求重写该字段直到合法为止
         //userInformationHandle的return:返回0则代表不符合任意条件，返回1符合中文名称，返回2符合学号，返回3符合QQ号，返回4符合手机号，返回5符合性别，返回6符合身高，返回7符合体重
         for (String s : userInfoList) {
             switch (InformationInput.userInformationHandle(s, InformationHandleMode.DEFAULT)) {
                 case 1 -> doneInfo.name = s;
                 case 2 -> doneInfo.id = s;
-                case 3 -> doneInfo.QQ = s;
+                //case 3 -> doneInfo.QQ = s;
                 case 4 -> doneInfo.telePhone = s;
                 case 5 -> doneInfo.gender = s;
                 case 6 -> doneInfo.height = s;
@@ -161,7 +178,7 @@ public class Information{
                 switch (code){
                     case 1 -> doneInfo.name = reInputInfo(InformationHandleMode.NAME);
                     case 2 -> doneInfo.id = reInputInfo(InformationHandleMode.ID);
-                    case 3 -> doneInfo.QQ = reInputInfo(InformationHandleMode.QQ);
+                    //case 3 -> doneInfo.QQ = reInputInfo(InformationHandleMode.QQ);
                     case 4 -> doneInfo.telePhone = reInputInfo(InformationHandleMode.TELEPHONE);
                     case 5 -> doneInfo.gender = reInputInfo(InformationHandleMode.GENDER);
                     case 6 -> doneInfo.height = reInputInfo(InformationHandleMode.HEIGHT);
@@ -171,6 +188,8 @@ public class Information{
         }
         return doneInfo;
     }
-
-
+    public Information achievementCollect(double achievementMax,double achievementMin){
+        this.achievement = AchievementInput.achievementHandle(achievementMax,achievementMin);
+        return this;
+    }
 }

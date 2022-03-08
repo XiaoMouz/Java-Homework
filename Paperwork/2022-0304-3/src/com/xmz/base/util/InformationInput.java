@@ -1,40 +1,8 @@
 package com.xmz.base.util;
 
+import static com.xmz.util.StringHandle.*;
+
 public class InformationInput {
-    /**
-     * 用于判断字符串是否能够转换为double类型整数，并且是否会大于或小于给定的数值
-     * @param buffer 用于判断的整数
-     * @param max 最大数
-     * @param min 最小数
-     * @return 若符合条件并且在范围内则返回true，否则为false
-     */
-    public static boolean checkNumber(String buffer,double max,double min) {
-        double transGo;
-        try { //判断输入是否符合数字条件
-            transGo = Double.parseDouble(buffer);
-        } catch (NumberFormatException error) {
-            return false;
-        }
-        //大小判断
-        return transGo >= min && transGo <= max;
-    }
-
-    /**
-     * 用于在该类内检查性别字符串合法性的方法
-     * @param handleString 需要配对的字符串
-     * @return 是否符合匹配条件
-     */
-    private static boolean genderChecker(String handleString){
-        switch (handleString) { //性别输入识别
-            case "男", "Man", "man", "MAN", "Male", "MALE", "女", "woman", "Woman", "WOMAN", "female", "Female", "FEMALE" -> {
-                return true;
-            }
-            default -> {
-                return false;
-            }
-        }
-    }
-
     /**
      * 能够处理基础信息的通用方法，能够适配姓名、学号、手机号、QQ号、性别、身高与体重，并且会返回符合哪个条件(注意，体重与身高在此处已被限定)
      * @param stdString 需要用于检查的字符串
@@ -51,9 +19,9 @@ public class InformationInput {
 
         if ((mode==InformationHandleMode.NAME||mode==InformationHandleMode.DEFAULT)&&stdString.matches(nameRegular)){
             return 1;
-        }else if ((mode==InformationHandleMode.ID||mode==InformationHandleMode.DEFAULT)&&checkNumber(stdString,21120101,21129999)){
+        }else if ((mode==InformationHandleMode.ID||mode==InformationHandleMode.DEFAULT)&&checkNumber(stdString,21129999,21120001)){
             return 2;
-        }else if ((mode==InformationHandleMode.QQ||mode==InformationHandleMode.DEFAULT)&&(stdString.length()>5&&stdString.length()<14&&stdString.matches(fullNumberRegular))){
+        }else if ((mode==InformationHandleMode.QQ||mode==InformationHandleMode.DEFAULT)&&(stdString.length()>99&&stdString.length()<999&&stdString.matches(fullNumberRegular))){
             return 3;
         }else if ((mode==InformationHandleMode.TELEPHONE||mode==InformationHandleMode.DEFAULT)&&stdString.matches(phoneNumberRegular)){
             return 4;
@@ -67,7 +35,6 @@ public class InformationInput {
             return 0;
         }
     }
-
     //处于v1版本的接受并处理用户信息方法，现已停用
     //    private static HashMap getUserInfo(HashMap in){
     //        String nameRegular = "^[\\u4e00-\\u9fa5.·\\u36c3\\u4DAE]{2,6}$";//中文姓名匹配用的正则表达式
@@ -179,5 +146,4 @@ public class InformationInput {
     //
     //        return newTable;
     //    }
-
 }
