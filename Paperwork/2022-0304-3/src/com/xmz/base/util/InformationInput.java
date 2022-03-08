@@ -1,10 +1,5 @@
 package com.xmz.base.util;
 
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.Scanner;
-import java.util.regex.Pattern;
-
 public class InformationInput {
     /**
      * 用于判断字符串是否能够转换为int类型整数，并且是否会大于或小于给定的数值

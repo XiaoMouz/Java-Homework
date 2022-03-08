@@ -118,12 +118,12 @@ public class Information{
      */
     public Information CollectBasicInformationFromConsole(String tips){
         Information doneInfo = new Information();
-        //[x]TODO:打印提示信息至控制台并且收集用户输入
+        //打印提示信息至控制台并且收集用户输入
         System.out.println(tips);
         Scanner in = new Scanner(System.in);
         String getUserInput = in.nextLine();
 
-        //[x]TODO:对字符串进行处理，存入Information类
+        //对字符串进行处理，存入Information类
         ArrayList<String> userInfoList = StringHandle.cutString(getUserInput,',');//用于存储切割后的字符串
 
         char[] arrayListMatchChar = {',','|','，',' ','\t'};//用于切割&比对的字符串
@@ -140,7 +140,7 @@ public class Information{
             System.out.println("error");
             return null;
         }
-        //[x]TODO:存入Information对象，判断是否合法，如不合法请求重写该字段直到合法为止
+        //存入Information对象，判断是否合法，如不合法请求重写该字段直到合法为止
         //userInformationHandle的return:返回0则代表不符合任意条件，返回1符合中文名称，返回2符合学号，返回3符合QQ号，返回4符合手机号，返回5符合性别，返回6符合身高，返回7符合体重
         for (String s : userInfoList) {
             switch (InformationInput.userInformationHandle(s, InformationHandleMode.DEFAULT)) {

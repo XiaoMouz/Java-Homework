@@ -1,7 +1,6 @@
 package com.xmz.util;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class StringHandle {
 
