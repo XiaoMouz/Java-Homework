@@ -16,6 +16,9 @@ public class Information{
     public Double[] achievement;
     public double sum,avg;
 
+    /**
+     * 通常情况下这些内容都为空，成绩总分与平均分是0
+     */
     public Information() {
         this.name = null;
         this.QQ = null;
@@ -125,10 +128,10 @@ public class Information{
 
         char[] arrayListMatchChar = {',','|','，',' ','\t'};//用于切割&比对的字符串
         //此循环用于循环使用arrayListMatchChar数组内的切割分析元素来校验，倘若接收过来的集合非空则跳过
-        for(int i = 0;i<arrayListMatchChar.length;i++){
-            if(userInfoList.isEmpty()){
-                userInfoList = StringHandle.cutString(getUserInput,arrayListMatchChar[i]);
-            }else{
+        for (char c : arrayListMatchChar) {
+            if (userInfoList.isEmpty()) {
+                userInfoList = StringHandle.cutString(getUserInput, c);
+            } else {
                 break;
             }
         }
@@ -139,16 +142,16 @@ public class Information{
         }
         //[x]TODO:存入Information对象，判断是否合法，如不合法请求重写该字段直到合法为止
         //userInformationHandle的return:返回0则代表不符合任意条件，返回1符合中文名称，返回2符合学号，返回3符合QQ号，返回4符合手机号，返回5符合性别，返回6符合身高，返回7符合体重
-        for (int i = 0;i < userInfoList.size();i++){
-            switch (InformationInput.userInformationHandle(userInfoList.get(i), InformationHandleMode.DEFAULT)) {
-                case 1 -> doneInfo.name = userInfoList.get(i);
-                case 2 -> doneInfo.id = userInfoList.get(i);
-                case 3 -> doneInfo.QQ = userInfoList.get(i);
-                case 4 -> doneInfo.telePhone = userInfoList.get(i);
-                case 5 -> doneInfo.gender = userInfoList.get(i);
-                case 6 -> doneInfo.height = userInfoList.get(i);
-                case 7 -> doneInfo.width = userInfoList.get(i);
-                default -> doneInfo._class = userInfoList.get(i);
+        for (String s : userInfoList) {
+            switch (InformationInput.userInformationHandle(s, InformationHandleMode.DEFAULT)) {
+                case 1 -> doneInfo.name = s;
+                case 2 -> doneInfo.id = s;
+                case 3 -> doneInfo.QQ = s;
+                case 4 -> doneInfo.telePhone = s;
+                case 5 -> doneInfo.gender = s;
+                case 6 -> doneInfo.height = s;
+                case 7 -> doneInfo.width = s;
+                default -> doneInfo._class = s;
             }
         }
         //出现不正确或空数据时进行的覆写操作
