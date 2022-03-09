@@ -28,7 +28,8 @@ public class StringHandle {
      */
     public static ArrayList<String> cutString(String stdString,char cutTarget){
         ArrayList<String> strings = new ArrayList<>();
-        for(int i = 0;i < 6;i++){
+        int times =  stringCharContainTimes(stdString,cutTarget);
+        for(int i = 0;i < times;i++){
             strings.add(stdString.substring(0,stdString.indexOf(cutTarget)));
             stdString = stdString.substring(stdString.indexOf(cutTarget)+1);
         }
