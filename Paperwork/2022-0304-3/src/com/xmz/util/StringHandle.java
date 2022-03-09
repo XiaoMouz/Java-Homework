@@ -29,6 +29,7 @@ public class StringHandle {
     public static ArrayList<String> cutString(String stdString,char cutTarget){
         ArrayList<String> strings = new ArrayList<>();
         int times =  stringCharContainTimes(stdString,cutTarget);
+        //提请注意:每次for循环，在判定大小时，若大小判定使用的是函数，则每次都会向函数请求一次值，由于stdString每次会被剪辑&替换，因此次数会少于预定次数，所以将其单独储存为妙
         for(int i = 0;i < times;i++){
             strings.add(stdString.substring(0,stdString.indexOf(cutTarget)));
             stdString = stdString.substring(stdString.indexOf(cutTarget)+1);
