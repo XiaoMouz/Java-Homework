@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b4ee0ce-5228-42dc-8cbc-81891dd67b88" name="默认变更列表" comment="">
-      <change beforePath="$PROJECT_DIR$/../2022-0304-3/out/production/2022-0304-3/com/xmz/main/AppMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2022-0304-3/out/production/2022-0304-3/com/xmz/main/AppMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2022-0304-3/src/com/xmz/main/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2022-0304-3/src/com/xmz/main/AppMain.java" afterDir="false" />
-    </list>
+    <list default="true" id="7b4ee0ce-5228-42dc-8cbc-81891dd67b88" name="默认变更列表" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +42,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -61,6 +69,7 @@
       <workItem from="1646556780157" duration="57000" />
       <workItem from="1646556895817" duration="15000" />
       <workItem from="1646726313083" duration="1974000" />
+      <workItem from="1646889581203" duration="81000" />
     </task>
     <servers />
   </component>
