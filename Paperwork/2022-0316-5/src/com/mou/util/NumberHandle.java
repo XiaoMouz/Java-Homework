@@ -57,8 +57,8 @@ public class NumberHandle {
      * @param mode 模式
      * @return 最大数或最小数
      */
-    public static int groupMaxOrMinNumber(int[] in,groupHandleMode mode){
-        if(mode==groupHandleMode.MAX){
+    public static int groupMaxOrMinNumber(int[] in, GroupHandleMode mode){
+        if(mode== GroupHandleMode.MAX){
             int max=in[0];
             for (int j : in) {
                 if (j > max) {
@@ -66,7 +66,7 @@ public class NumberHandle {
                 }
             }
             return max;
-        }else if(mode==groupHandleMode.MIN){
+        }else if(mode== GroupHandleMode.MIN){
             int min=in[0];
             for (int j : in) {
                 if (j < min) {
@@ -85,8 +85,8 @@ public class NumberHandle {
      * @param mode 模式
      * @return 最大数或最小数
      */
-    public static Double groupMaxOrMinNumber(Double[] in,groupHandleMode mode){
-        if(mode==groupHandleMode.MAX){
+    public static Double groupMaxOrMinNumber(Double[] in, GroupHandleMode mode){
+        if(mode== GroupHandleMode.MAX){
             double max=in[0];
             for (double j : in) {
                 if (j > max) {
@@ -94,7 +94,7 @@ public class NumberHandle {
                 }
             }
             return max;
-        }else if(mode==groupHandleMode.MIN){
+        }else if(mode== GroupHandleMode.MIN){
             double min=in[0];
             for (double j : in) {
                 if (j < min) {

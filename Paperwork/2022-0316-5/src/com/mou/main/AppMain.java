@@ -2,7 +2,7 @@ package com.mou.main;
 
 import com.mou.util.Input;
 import com.mou.util.NumberHandle;
-import com.mou.util.groupHandleMode;
+import com.mou.util.GroupHandleMode;
 import java.util.Arrays;
 
 public class AppMain {
@@ -33,7 +33,7 @@ public class AppMain {
 
         Arrays.sort(rNums);
         System.out.println("排序后:");
-        System.out.println("最小数:"+NumberHandle.groupMaxOrMinNumber(rNums, groupHandleMode.MIN)+"|最大数:"+NumberHandle.groupMaxOrMinNumber(rNums, groupHandleMode.MAX)+"|总和:"+NumberHandle.getSum(rNums)+"|平均数:"+NumberHandle.getSum(rNums)/rNums.length);
+        System.out.println("最小数:"+NumberHandle.groupMaxOrMinNumber(rNums, GroupHandleMode.MIN)+"|最大数:"+NumberHandle.groupMaxOrMinNumber(rNums, GroupHandleMode.MAX)+"|总和:"+NumberHandle.getSum(rNums)+"|平均数:"+NumberHandle.getSum(rNums)/rNums.length);
         System.out.println();
         for(int i=0;i<rNums.length;i++){
             System.out.print(rNums[i]+"|");

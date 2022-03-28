@@ -7,12 +7,66 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Cat {
-    public String name,type,color;
-    int age;
-    double width;
+    private String name,type,color;
+    private int age;
+    private double width;
 
     public Cat(String name){
         this.name = name;
+    }
+
+    public Cat(String name, String type, String color, int age, double width) {
+        this.name = name;
+        this.type = type;
+        this.color = color;
+        this.age = age;
+        this.width = width;
+    }
+
+    public Cat(String name, String type, String color) {
+        this.name = name;
+        this.type = type;
+        this.color = color;
+    }
+
+    public Cat(String name, String type) {
+        this.name = name;
+        this.type = type;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return this.name;
+    }
+
+    public void setType(String type){
+        this.type = type;
+    }
+    public String getType(){
+        return this.type;
+    }
+
+    public void setColor(String color){
+        this.color = color;
+    }
+    public String getColor(){
+        return this.color;
+    }
+
+    public void setAge(int age){
+        this.age = age;
+    }
+    public int getAge(){
+        return this.age;
+    }
+
+    public void setWidth(double width){
+        this.width = width;
+    }
+    public double getWidth(){
+        return this.width;
     }
 
     /**

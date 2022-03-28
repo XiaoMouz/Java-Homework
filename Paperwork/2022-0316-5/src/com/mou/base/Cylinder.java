@@ -5,6 +5,18 @@ public class Cylinder {
     public double r;
     public double h;
 
+    public Cylinder(){
+    }
+
+    public Cylinder(double r) {
+        this.r = r;
+    }
+
+    public Cylinder(double r, double h) {
+        this.r = r;
+        this.h = h;
+    }
+
     public double getSurfaceArea(){
         return 2*PI*r*r + 2*PI*r*h;
     }

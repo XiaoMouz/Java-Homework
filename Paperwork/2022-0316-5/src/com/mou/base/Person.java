@@ -8,16 +8,12 @@ import com.mou.util.StringHandle;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * 本类拥有8个可控制字符串成员，对应学生基础信息|1个双精度数组成员，对应各科成绩|2个双精度数成员，对应总数和平均数
- * 其中字符串成员只有较不完善的写入控制
- */
 public class Person{
     public String name,telePhone,id,gender,height,width,_class;
     int age;
 
     /**
-     * 通常情况下这些内容都为空，成绩总分与平均分是0
+     * 通常情况下这些内容都为空，年龄是0
      */
     public Person() {
         this.name = null;
@@ -30,10 +26,34 @@ public class Person{
         this.age=0;
     }
 
+    public Person(String name,String id,String gender){
+        this.name = name;
+        this.id = id;
+        this.gender = gender;
+    }
+
+    public Person(String name, String id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public Person(String name, String telePhone, String id, String gender, String height, String width, String _class, int age) {
+        this.name = name;
+        this.telePhone = telePhone;
+        this.id = id;
+        this.gender = gender;
+        this.height = height;
+        this.width = width;
+        this._class = _class;
+        this.age = age;
+    }
+
+
+
     /**
      * 用于检查该对象是否还有空的字符串成员，若有则返回对应的数字，只会检查一次，若有多个建议反复调用8次来确保所有字符串成员已有相应信息
      * @param needCheck 需要检查的Information对象
-     * @return 返回0则代表完全通过，返回1表示名称有误，返回2学号有误，返回3年龄号有误，返回4手机号有误，返回5性别有误，返回6身高有误，返回7体重有误
+     * @return 返回0则代表完全通过，返回1表示名称有误，返回2学号有误，返回3年龄有误，返回4手机号有误，返回5性别有误，返回6身高有误，返回7体重有误
      */
     private static int checkInformationContact(Person needCheck){
         if(needCheck.name==null){

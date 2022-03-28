@@ -1,5 +1,5 @@
 package com.mou.util;
 
-public enum groupHandleMode {
+public enum GroupHandleMode {
     MAX,MIN;
 }
