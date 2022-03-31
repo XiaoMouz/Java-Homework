@@ -1,5 +1,6 @@
 package com.mou.main;
 
+import com.mou.base.Test;
 import com.mou.util.Input;
 import com.mou.util.NumberHandle;
 import com.mou.util.GroupHandleMode;
@@ -7,6 +8,9 @@ import java.util.Arrays;
 
 public class AppMain {
     public static void main(String[] args) {
+        Test t1=new Test();
+
+        Test t2=new Test();
         //Q1:定义用于输入n个数的方法（调用util包下Input类中确保输入一定范围数的方法实现）。
         System.out.println("你要输入几个数字？");
         int[] getNums = Input.getAppointNumbers(Input.checkUserInput("错误，重输"));
