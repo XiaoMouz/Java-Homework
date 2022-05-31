@@ -1,0 +1,23 @@
+    public void forEach(Consumer<String> action){
+        StringBuilder str = new StringBuilder();
+        str.append("队伍名称:").append(name).append(" | ");
+        str.append("创建者:").append(creator).append(" | ");
+        str.append("队伍总伤害:").append(teamAtkSum()).append("\n");
+        str.append("队伍成员:");
+        action.accept(str.toString());
+        str.delete(0,str.length());
+        for (Role role : member){
+            try{
+                if(role.getRoleTag() == RoleTag.SOLDIER){
+                    str.append("玩家名称:").append(role.getName()).append(" | 职业:" ).append(role.getRoleTag().toString()).append(" | 攻击力:").append(role.getAtk()).append(" | 年龄").append(((Soldier) role).getAge());
+                }else if(role.getRoleTag() == RoleTag.MASTER){
+                    str.append("玩家名称:").append(role.getName()).append(" | 职业:" ).append(role.getRoleTag().toString()).append(" | 攻击力:").append(role.getAtk()).append(" | 等级").append(((Master) role).getLevel());
+                }
+                action.accept(str.toString());
+                str.delete(0,str.length());
+            }catch (Exception e){
+                continue;
+            }
+        }
+
+    }

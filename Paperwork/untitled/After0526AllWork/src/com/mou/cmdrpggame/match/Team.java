@@ -5,6 +5,8 @@ import com.mou.cmdrpggame.user.roles.Role;
 import com.mou.cmdrpggame.user.roles.RoleTag;
 import com.mou.cmdrpggame.user.roles.Soldier;
 
+import java.util.function.Consumer;
+
 public class Team {
     private Role[] member = new Role[6];
     public String name;
@@ -88,5 +90,7 @@ public class Team {
         }
         System.out.print(str);
     }
+
+
 
 }

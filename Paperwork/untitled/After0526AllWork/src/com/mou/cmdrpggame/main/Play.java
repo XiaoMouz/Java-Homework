@@ -23,5 +23,6 @@ public class Play {
         S1.printInfo();
 
         teamA.printTeamInfo();
+
     }
 }
