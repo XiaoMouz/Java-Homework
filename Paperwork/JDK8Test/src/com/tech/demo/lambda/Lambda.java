@@ -19,6 +19,7 @@ public class Lambda {
         monkey2.eat();
         //即: (参数) -> 运算符 {方法体/表达式}
         //Lambda表达式是一种匿名函数(不是匿名内部类)
+
     }
 
     //Way B:建一个内部类
@@ -29,6 +30,8 @@ public class Lambda {
         }
     }
 }
+
+
 
 interface Animal{
     void eat();

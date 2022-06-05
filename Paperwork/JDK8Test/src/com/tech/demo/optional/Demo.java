@@ -47,7 +47,7 @@ public class Demo {
         role = role1.orElseGet(Role::new);
         System.out.println(role);
 
-        //以及更好玩的，ifPresent方法能执行Lambda，记得把上面注释掉哦
+        //以及更好玩的，ifPresent方法能执行Lambda，记得把上面注释掉哦x
         role1.ifPresent((x)->{
             //其中的x代表的是对象role，不是role1!这个optional对象，而是传进来的那个role
             System.out.println("1");
@@ -61,6 +61,7 @@ public class Demo {
         Optional<Boolean> aBoolean = role1.map(x -> x.getName() != null && x.getRoleTag() != null);//var补全了一下
 
         //.filter()是一个过滤方法，也是通过Lambda驱动，根据Lambda的条件来返回布尔值
+        System.out.println(role1.filter(x->x.getName()==null));
 
     }
 }

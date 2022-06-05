@@ -24,7 +24,7 @@ public class Lambda2 {
 
         //D 有参有返回值版本Lambda
         Egg egg = (int a)->{
-            return a++;
+            return ++a;
         };
 
         System.out.println(egg.make(50));

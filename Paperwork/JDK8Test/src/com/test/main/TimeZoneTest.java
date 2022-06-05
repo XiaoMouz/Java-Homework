@@ -10,9 +10,16 @@ public class TimeZoneTest {
     public static void main(String args[]){
         TimeZoneTest j8ttest = new TimeZoneTest();
         j8ttest.testLocalDateTime();
+
+        LocalDateTime date = LocalDateTime.now();
+        System.out.println(date.getDayOfWeek());
+        date = date.withDayOfMonth(30).withYear(2999).withMonth(2);
+        System.out.println(date);
     }
 
     public void testLocalDateTime(){
+
+
 
         // 获取当前的日期时间
         LocalDateTime currentTime = LocalDateTime.now();

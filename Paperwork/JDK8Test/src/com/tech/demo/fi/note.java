@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 public class note {
     /**
      *
-     * java内置四大函数式接口
+     * Java 内置四大函数式接口
      *
      * Consumer<T> :消费型接口
      * 			void accept(T t);
@@ -23,12 +23,12 @@ public class note {
      * 			R apply(T t);
      *
      * Predicate<T> :断言型接口
-     * 			boolean test(T t);
+     * 			boolean test(T t);gxiaomo
      *
      */
         //Consumer<T> 消费型接口：
         public void test1(){
-            happy(1000,(m) ->System.out.println("喜欢大宝剑，消费："+m+"元"));
+            happy(1000,(m) ->System.out.println("消费："+m+"元"));
         }
         public void happy(double money, Consumer<Double> con){
             con.accept(money);

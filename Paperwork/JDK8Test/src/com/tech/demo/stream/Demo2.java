@@ -26,13 +26,13 @@ public class Demo2 {
                                 .sorted((x,y)->y-x)//降序写法，使用Lambda
                                 //.limit(4)//取集合中的前4个值
                                 //.skip(3)//跳过前3个值
-                                .map(a->a+8)//向里面所有元素+8
-                                //.filter(x->x>30)
+                                .map(a->a>8?a:a+8)//向里面所有元素+8
+                                .filter(x->x>30)
                                 ;
 
         // 3-终止操作  eg:终止操作只能执行一个
-        //streamlist.forEach(System.out::println);//将集合中的内容进行遍历输出
-            System.out.println(streamlist.max((x,y)->x));//取最大值
+        streamlist.forEach(System.out::println);//将集合中的内容进行遍历输出
+            //System.out.println(streamlist.max((x,y)->x));//取最大值
         //System.out.println(streamlist.count());
         //System.out.println(streamlist.findFirst().get());
         //因此若全部取消注释会出现异常

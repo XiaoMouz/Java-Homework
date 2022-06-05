@@ -26,6 +26,8 @@ public class Demo {
                                 .sorted();//排序
 
         // 3-终止操作
-        streamlist.forEach(System.out::println);//将集合中的内容进行遍历输出
+        List<Integer> set = new ArrayList<>();
+        streamlist.forEach(set::add);//将集合中的内容进行遍历输出
+        set.forEach(System.out::println);
     }
 }
